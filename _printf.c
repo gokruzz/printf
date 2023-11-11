@@ -21,26 +21,27 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			/* Handle c & s specifiers */
-			switch (*++format)
+			format++;
+			if (*format == 'c')
 			{
-				case 'c':
-					print += fprintf(stdout, "%c", va_arg(args, int));
-					break;
-				case 's':
-					print += fprintf(stdout, "%s", va_arg(args, char*));
-					break;
-				default:
-					/* Handle unknown format specifiers */
-					putchar('%');
-					write(1, format, 1);
-					print += 2;
-					break;
+				char c = va_arg(args, int);
+
+				write(1, &c, 1);
+				print++;
+			}
+			else if (*format == 's')
+			{
+				char *str = va_arg(args, char*);
+				int str_len = 0;
+
+				while (str[str_len] != '\0')
+					str_len++;
+				write(1, str, str_len);
+				print += str_len;
 			}
 		}
 		format++;
 	}
-
 	va_end(args);
 	return (print);
 }
