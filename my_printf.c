@@ -3,20 +3,17 @@
 /**
  * _printf - ...
  * @format: a character string composing of zero or directives
- * 
+ *
  * Return: number of character printed
 */
 
 int _printf(const char *format, ...)
 {
-
-    int print_char;
-    print_char = 0;
-
+    int print_char = 0;
     va_list fmats;
      
     if (format == NULL)
-    return (-1);
+    return -1;
 
     va_start(fmats, format);
 
