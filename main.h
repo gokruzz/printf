@@ -14,7 +14,7 @@
 typedef struct format
 {
 	char *spec;
-	int (*i) ();
+	int (*i)();
 } fmt;
 
 int  _printf(const char *format, ...);
