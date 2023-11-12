@@ -6,7 +6,7 @@
  *
  * Return: Nothing
  */
-void prints_s(char *str)
+void prints_str(char *str)
 {
 	write(1, str, strlen(str));
 }
