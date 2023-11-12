@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 				char c = va_arg(fmat_lists, int);
 
 				print_char++;
-				prints_c(c)
+				prints_c(c);
 			}
 			else if (*format == 's')
 			{
