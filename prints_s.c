@@ -8,5 +8,5 @@
  */
 int prints_str(char *str)
 {
-	write(1, str, strlen(str));
+	return (write(1, str, strlen(str)));
 }
