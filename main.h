@@ -9,7 +9,7 @@
 int  _printf(const char *format, ...);
 int _puts(char *c);
 int my_putchar(char c);
-void prints_c(char c);
-void prints_s(char *str);
+void prints_char(char c);
+void prints_str(char *str);
 
 #endif
