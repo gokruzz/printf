@@ -11,11 +11,12 @@
   * @spec: specifier
   * @i: function for conversion specifier
   */
-typedef struct format
+struct format
 {
 	char *spec;
 	int (*i)();
-} fmt;
+};
+typedef struct format fmt;
 
 int  _printf(const char *format, ...);
 int _puts(char *c);
