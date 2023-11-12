@@ -17,8 +17,7 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{
-			print_char++;
-			prints_char(*format);
+			print_char += prints_char(*format);
 		}
 		else
 		{
@@ -27,22 +26,19 @@ int _printf(const char *format, ...)
 				break;
 			if (*format == '%')
 			{
-				print_char++;
-				prints_char(*format);
+				print_char += prints_char('%');
 			}
 			else if (*format == 'c')
 			{
 				char c = va_arg(fmat_lists, int);
 
-				print_char++;
-				prints_char(c);
+				print_char += prints_char(c);
 			}
 			else if (*format == 's')
 			{
 				char *str = va_arg(fmat_lists, char*);
 
-				print_char += strlen(str);
-				prints_str(str);
+				print_char += prints_str(str);
 			}
 		}
 		format++;
