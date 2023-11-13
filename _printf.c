@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 	fmt m[] = {
 		{"%c", print_char}, {"%s", print_str}, {"%%", print_per},
 		{"%i", print_int}, {"%d", print_dec}, {"%b", print_b},
-		{"%u", print_uint}
+		{"%u", print_uint}, {"%S", print_custom}
 	};
 
 	va_list args;
