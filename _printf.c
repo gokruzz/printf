@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 Here:
 	while (format[k] != '\0')
 	{
-		l = 3;
+		l = 4;
 		while (l >= 0)
 		{
 			if (m[l].spec[0] == format[k] && m[l].spec[1] == format[k + 1])
