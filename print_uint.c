@@ -7,28 +7,39 @@
  */
 int print_uint(va_list args)
 {
-	unsigned int n = va_arg(args, unsigned int);
-	unsigned int temp = n;
-	int count = 0;
+	unsigned int u = va_arg(args, unsigned int);
+	int num, end = u % 10, a, e = 1;
+	int i = 1;
 
-	if (n == 0)
-	{
-		my_putchar('0');
-		return (1);
-	}
+	u = u / 10;
+	num = u;
 
-	while (temp != 0)
+	if (end < 0)
 	{
-		temp = temp / 8;
-		count++;
+		my_putchar('-');
+		num = -num;
+		u = -u;
+		end = -end;
+		i++;
 	}
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			e = e * 10;
+			num = num / 10;
+		}
+		num = u;
+		while (end > 0)
+		{
+			a = num / e;
+			my_putchar(a + '0');
+			num = num - (a * e);
+			e = e / 10;
+			i++;
+		}
 
-	while (count > 0)
-	{
-		count--;
-		temp = n >> (count * 3);
-		my_putchar((temp & 7) + '0');
 	}
-	return (count + 1);
+	my_putchar(end + '0');
+	return (i);
 }
-
