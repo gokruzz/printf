@@ -30,7 +30,7 @@ int print_octal(va_list args)
 	unsigned int o = va_arg(args, unsigned int);
 	int len = 0;
 
-	while (u > 0)
+	while (o > 0)
 	{
 		my_putchar('0' + (o % 8));
 		o /= 8;
