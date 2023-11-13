@@ -8,7 +8,8 @@ int _printf(const char *format, ...)
 {
 	fmt m[] = {
 		{"%c", print_char}, {"%s", print_str}, {"%%", print_per},
-		{"%i", print_int}, {"%d", print_dec}, {"%b", print_b}
+		{"%i", print_int}, {"%d", print_dec}, {"%b", print_b},
+		{"%u", print_uint}, {"%o", print_octal}, {"%x", print_hexa}
 	};
 
 	va_list args;
