@@ -7,9 +7,11 @@
 int _printf(const char *format, ...)
 {
 	fmt m[] = {
-		{"%c", print_char}, {"%s", print_str}, {"%%", print_per},
+		{"%c", print_char}, {"%s", print_str},
+		{"%%", print_per},
 		{"%i", print_int}, {"%d", print_dec}, {"%b", print_b},
-		{"%u", print_uint}, {"%S", print_custom}, {"%o", print_octal}
+		{"%u", print_uint}, {"%S", print_custom},
+		{"%o", print_octal}, {"%X", print_HEX}, {"%x", print_hex}
 	};
 
 	va_list args;
@@ -22,7 +24,7 @@ int _printf(const char *format, ...)
 Here:
 	while (format[k] != '\0')
 	{
-		l = 5;
+		l = 10;
 		while (l >= 0)
 		{
 			if (m[l].spec[0] == format[k] && m[l].spec[1] == format[k + 1])

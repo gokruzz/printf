@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
   * struct format - converts for printf
@@ -30,8 +31,12 @@ int print_int(va_list args);
 int print_dec(va_list args);
 int print_b(va_list args);
 int print_uint(va_list args);
-int print_hexa(va_list args);
 int print_octal(va_list args);
 int print_custom(va_list args);
+int print_HEXA(unsigned int num);
+int print_HEX(va_list args);
+int print_hex(va_list args);
+int print_hexa(unsigned long int num);
+int print_ptr(va_list args);
 
 #endif
