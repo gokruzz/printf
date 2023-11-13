@@ -28,5 +28,6 @@ int _strlen(char *str);
 int print_str(va_list args);
 int print_int(va_list args);
 int print_dec(va_list args);
+int print_b(va_list args);
 
 #endif
