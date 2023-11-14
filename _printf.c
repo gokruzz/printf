@@ -8,7 +8,7 @@ int _printf(const char *format, ...)
 {
 	fmt m[] = {
 		{"%c", print_char}, {"%s", print_str},
-		{"%%", print_per},
+		{"%%", print_per}, {"%p", print_ptr},
 		{"%i", print_int}, {"%d", print_dec},
 		{"%b", print_b},
 		{"%u", print_uint},
@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 Here:
 	while (format[k] != '\0')
 	{
-		l = 10;
+		l = 11;
 		while (l >= 0)
 		{
 			if (m[l].spec[0] == format[k] && m[l].spec[1] == format[k + 1])
