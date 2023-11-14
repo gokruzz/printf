@@ -9,7 +9,7 @@ int print_HEXA(unsigned int num)
 	int a;
 	int *arr;
 	int count = 0;
-	unsigned int temp = num;
+	unsigned int tem = num;
 
 	while (num / 16 != 0)
 	{
@@ -21,8 +21,8 @@ int print_HEXA(unsigned int num)
 
 	for (a = 0; a < count; a++)
 	{
-		arr[a] = temp % 16;
-		temp /= 16;
+		arr[a] = tem % 16;
+		tem = tem / 16;
 	}
 	for (a = count - 1; a >= 0; a--)
 	{

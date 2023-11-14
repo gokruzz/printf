@@ -25,7 +25,7 @@ int print_octal(va_list args)
 	for (o = 0; o < len; o++)
 	{
 		arr[o] = temp % 8;
-		temp /= 8;
+		temp = temp / 8;
 	}
 	for (o = len - 1; o >= 0; o--)
 	{

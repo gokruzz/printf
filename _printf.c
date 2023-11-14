@@ -38,8 +38,8 @@ Here:
 			l--;
 		}
 		my_putchar(format[k]);
-		k++;
 		len++;
+		k++;
 	}
 	va_end(args);
 	return (len);

@@ -10,7 +10,7 @@ int print_hex(va_list args)
 	int *arr;
 	int count = 0;
 	unsigned int num = va_arg(args, unsigned int);
-	unsigned int temp = num;
+	unsigned int tem = num;
 
 	while (num / 16 != 0)
 	{
@@ -22,8 +22,8 @@ int print_hex(va_list args)
 
 	for (a = 0; a < count; a++)
 	{
-		arr[a] = temp % 16;
-		temp /= 16;
+		arr[a] = tem % 16;
+		tem = tem / 16;
 	}
 	for (a = count - 1; a >= 0; a--)
 	{

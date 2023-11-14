@@ -39,5 +39,7 @@ int print_HEX(va_list args);
 int print_hex(va_list args);
 int print_hexa(unsigned long int num);
 int print_ptr(va_list args);
+int _strlenc(const char *s);
+int *_strcpy(char *dest, char *src);
 
 #endif

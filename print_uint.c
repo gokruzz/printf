@@ -30,7 +30,7 @@ int print_uint(va_list args)
 			num = num / 10;
 		}
 		num = u;
-		while (end > 0)
+		while (e > 0)
 		{
 			a = num / e;
 			my_putchar(a + '0');
