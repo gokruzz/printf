@@ -16,7 +16,7 @@ int print_octal(va_list args)
 
 	while (num / 8 != 0)
 	{
-		num /= 8;
+		num = num / 8;
 		len++;
 	}
 	len++;

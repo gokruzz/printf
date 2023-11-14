@@ -1,15 +1,16 @@
 #include "main.h"
 /**
-  * print_hexa - prints an hexagecimal number
-  * @num: number to print
+  * print_hex - prints hexagecimal number
+  * @args: arguments
   * Return: count
   */
-int print_hexa(unsigned long int num)
+int print_hex(va_list args)
 {
-	long int a;
-	long int *arr;
-	long int count = 0;
-	unsigned long int tem = num;
+	int a;
+	int *arr;
+	int count = 0;
+	unsigned int num = va_arg(args, unsigned int);
+	unsigned int tem = num;
 
 	while (num / 16 != 0)
 	{
@@ -17,7 +18,7 @@ int print_hexa(unsigned long int num)
 		count++;
 	}
 	count++;
-	arr = malloc(count * sizeof(long int));
+	arr = malloc(count * sizeof(int));
 
 	for (a = 0; a < count; a++)
 	{

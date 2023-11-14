@@ -1,46 +1,33 @@
 #include "main.h"
 /**
- * _printf - print function
- * @format: a character string composing of zero or directives
- * Return: len
-*/
-int _printf(const char *format, ...)
+  * get_print - selects the right printf function
+  * @s: character
+  * Return: a pointer to the matching printing function
+  */
+int (*get_print(char s))(va_list, flags_t *)
 {
-	fmt m[] = {
-		{"%c", print_char}, {"%s", print_str},
-		{"%%", print_per}, {"%p", print_ptr},
-		{"%i", print_int}, {"%d", print_dec},
-		{"%b", print_b},
-		{"%u", print_uint},
-		{"%o", print_octal}, {"%x", print_hex}, {"%X", print_HEX},
-		{"%S", print_custom}
+	hr func_arr[] = {
+	{'i', print_int},
+	{'s', print_str},
+	{'c', print_char},
+	{'d', print_int},
+	{'u', print_unsigned},
+	{'x', print_hex},
+	{'X', print_HEX},
+	{'b', print_bin},
+	{'o', print_oct},
+	{'R', print_rot13},
+	{'r', print_rev},
+	{'S', print_s},
+	{'p', print_addy},
+	{'%', print_per}
 	};
+	int flags = 14;
 
-	va_list args;
-	int k = 0, l, len = 0;
+	register int i;
 
-	va_start(args, format);
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
-
-Here:
-	while (format[k] != '\0')
-	{
-		l = 11;
-		while (l >= 0)
-		{
-			if (m[l].spec[0] == format[k] && m[l].spec[1] == format[k + 1])
-			{
-				len += m[l].i(args);
-				k = k + 2;
-				goto Here;
-			}
-			l--;
-		}
-		my_putchar(format[k]);
-		len++;
-		k++;
-	}
-	va_end(args);
-	return (len);
+	for (i = 0; i < flags; i++)
+		if (func_arr[i].c == s)
+			return (func_arr[i].p);
+	return (NULL);
 }

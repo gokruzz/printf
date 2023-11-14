@@ -1,30 +1,23 @@
 #include "main.h"
 /**
-  * print_ptr - pointer to argument
-  * @args: arguments
-  * Return: y+2
+  * print_addy - prints address of input in hexa format
+  * @e: va_list arguments from _printf
+  * @p: pointer to the struct flags
+  * Return: number of char printed
   */
-int print_ptr(va_list args)
+int print_addy(va_list e, flags_t *p)
 {
-	void *a;
-	char *str = "(nil)";
-	long int x;
-	int y;
-	int i;
+	char *s;
+	unsigned long int a = va_arg(e, unsigned long int);
 
-	a = va_arg(args, void*);
-	if (a == NULL)
-	{
-		for (i = 0; str[i] != '\0'; i++)
-		{
-			my_putchar(str[i]);
-		}
-		return (i);
-	}
+	register int count = 0;
 
-	x = (unsigned long int)a;
-	my_putchar('0');
-	my_putchar('x');
-	y = print_hexa(x);
-	return (y + 2);
+	(void)p;
+
+	if (!a)
+		return (_putss("(nil)"));
+	s = convert(a, 16, 1);
+	count += _putss("0x");
+	count += _putss(s);
+	return (count);
 }
