@@ -27,7 +27,7 @@ int print_octal(va_list args)
 		arr[o] = temp % 8;
 		temp /= 8;
 	}
-	for (o = len - 1; o >= 0; o++)
+	for (o = len - 1; o >= 0; o--)
 	{
 		my_putchar(arr[o] + '0');
 	}
